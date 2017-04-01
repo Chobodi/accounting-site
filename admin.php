@@ -85,7 +85,7 @@ require_once 'db/dbConnection.php';
                                        echo'<tr>';
                                             echo'<td>' . $row["name"] . '</td>';
                                             echo'<td>' . $row["description"] . '</td>';
-                                            echo'<td><a href="uploads/papers/paper1.pdf">Download</a></td>';
+                                            echo'<td><a href="uploads/papers/'.$row["url"].'">Download</a></td>';
                                     }
                                 }
                             ?>

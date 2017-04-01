@@ -1,5 +1,5 @@
 <?php
-require_once './db/dbConnection.php';
+require_once 'db/dbConnection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ require_once './db/dbConnection.php';
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
             <h2>About Us</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, ei essent delenit sit, adipisci salutatus has eu. Quis tamquam cu nam. Sed esse deleniti et, ex rebum quaestio his. Audiam deseruisse sed cu, vix ex possim causae omittantur.</p>
+            <p class="lead">About the teacher</p>
           </div>
         </div>
 	  </div>
@@ -89,23 +89,23 @@ require_once './db/dbConnection.php';
         <div class="row">
           <div class="col-md-4 text-center">
             <div class="service-item">
-              <i class="service-icon fa fa-camera-retro fa-3x"></i>
-              <h3>Portrait</h3>
-              <p>Ad has dicat ridens consetetur, eos eu option persius. Mollis cotidieque conclusionemque per id, ne nam alienum liberavisse. </p>
+              <i class="service-icon fa fa-paperclip fa-3x"></i>
+              <h3>Past Papers</h3>
+              <p>Past papers for the A/l accounting students can get from here freely.Answers also provided</p>
             </div>
           </div>
           <div class="col-md-4 text-center">
             <div class="service-item">
-			<i class="service-icon fa fa-camera fa-3x"></i>
-              <h3>Black & white</h3>
-              <p>In mea similique vulputate, ea cum amet malorum dissentiunt. Qui deleniti aliquando cu, ullum soluta his an, id inani salutatus sit.</p>
+			<i class="service-icon fa fa-question fa-3x"></i>
+              <h3>You can Ask Questions</h3>
+              <p>Clarify all your doubts in accounting subject</p>
             </div>
           </div>
           <div class="col-md-4 text-center">
             <div class="service-item">
               <i class="service-icon fa fa-globe fa-3x"></i>
-              <h3>Web Design</h3>
-              <p>Ad has dicat ridens consetetur, eos eu option persius. Mollis cotidieque conclusionemque per id, ne nam alienum liberavisse.</p>
+              <h3>Latest News</h3>
+              <p>I will upload latest news regard to the accounting all over the world</p>
             </div>
           </div>
         </div>
