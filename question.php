@@ -73,45 +73,8 @@ if ($result->num_rows > 0) {
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-		<div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Uploaded Question Papers and Answers
-                        </h1>
-                    </div>
-                </div> 
-                <div class="row">
-                    <div class="col-md-12">
-                        <table>
-                            <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Paper</th>
-                            </tr>
-                            <?php
-                                require_once 'db/dbConnection.php';
-
-                                $sql = "SELECT * FROM papers;";
-                                $result = $conn->query($sql);
-
-                                if ($result->num_rows > 0) {
-                                // output data of each row
-                                    while ($row = $result->fetch_assoc()) { 
-                                       echo'<tr>';
-                                            echo'<td>' . $row["name"] . '</td>';
-                                            echo'<td>' . $row["description"] . '</td>';
-                                            echo'<td><a href="uploads/papers/'.$row["url"].'">Download</a></td>';
-                                    }
-                                }
-                            ?>
-                            
-                                
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+		 
+                
             </div>
         </div>
     </div>
