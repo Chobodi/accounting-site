@@ -23,6 +23,14 @@ if (isset($_POST['login'])) {
 
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+    //search admin
+
+    $sel_admin = "select * from admin where username='$username' AND password='$password'";
+
+    $run_admin = mysqli_query($conn, $sel_user);
+
+    $check_admin = mysqli_num_rows($run_user);
+
     //search user
 
     $sel_user = "select * from users where username='$username' AND password='$password'";
@@ -31,13 +39,11 @@ if (isset($_POST['login'])) {
 
     $check_user = mysqli_num_rows($run_user);
 
-    
+    //check admin
 
-    //check user
+    if ($check_admin > 0) {
 
-    if ($check_user > 0) {
-
-        $sql = "SELECT id from users WHERE username='" . $username . "';";
+        $sql = "SELECT id from admin WHERE username='" . $username . "';";
         $result = $conn->query($sql);
 
         
@@ -51,7 +57,24 @@ if (isset($_POST['login'])) {
         }
         echo "<script>window.open('admin.php','_self')</script>";
     }
+    
+    //check user
+    elseif ($check_user > 0) {
 
+        $sql = "SELECT id from users WHERE username='" . $username . "';";
+        $result = $conn->query($sql);
+
+        
+        
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION['id'] = $row["id"];
+                
+            }
+        }
+        echo "<script>window.open('student.php','_self')</script>";
+    }
    
     else {
 
