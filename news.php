@@ -102,8 +102,8 @@ if(isset($_POST['btn-upload']))
                         </div>
                     </div>
                 </div>
-                    <div class="col-md-4 col-sm-4"></div>
-                <div class="col-md-4 col-sm-4">
+                    
+                <div class="col-md-8 col-sm-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Uploaded Images 

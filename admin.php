@@ -91,8 +91,6 @@ require_once 'db/dbConnection.php';
                             ?>
                             
                                 
-                                <td></td>
-                                <td></td>
                             </tr>
                         </table>
                     </div>

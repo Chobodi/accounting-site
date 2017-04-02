@@ -69,6 +69,25 @@ INSERT INTO `papers` (`paper_id`, `name`, `url`, `description`) VALUES
 	(2, '2013 A/l Accounting', 'paper2.pdf', 'Explore more');
 /*!40000 ALTER TABLE `papers` ENABLE KEYS */;
 
+-- Dumping structure for table accounting.question
+CREATE TABLE IF NOT EXISTS `question` (
+  `question_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `question` varchar(300) NOT NULL,
+  `answer` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`question_id`),
+  KEY `FK_question_users` (`student_id`),
+  CONSTRAINT `FK_question_users` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table accounting.question: ~1 rows (approximately)
+DELETE FROM `question`;
+/*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` (`question_id`, `student_id`, `question`, `answer`) VALUES
+	(1, 1, 'what are the fundamentals of accounting', ''),
+	(2, 3, 'Can I have the answers of 2017 A/l accounting paper', NULL);
+/*!40000 ALTER TABLE `question` ENABLE KEYS */;
+
 -- Dumping structure for table accounting.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

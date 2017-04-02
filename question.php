@@ -73,8 +73,65 @@ if ($result->num_rows > 0) {
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-		 
-                
+		<div class="col-md-12">
+                        <h1 class="page-header">
+                            Ask Question
+                        </h1>
+                </div> 
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-3">
+                       <form action="#" class="form-horizontal" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="question">Question</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text"  placeholder="Place your question here" class="form-control" name="question" id="question" rows="4"></textarea>
+                                    </div>
+                            </div>
+                            
+						    
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button type="submit" name="question" class="btn btn-success">Submit</button>
+                            </div>
+                        </fieldset>
+                        </form>  
+                    </div>
+                </div>
+                <div class="row">
+                  <h4>
+                    Questions and Answers
+                  </h4>  
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                            <th>Question</th>
+                            <th>Answer</th>
+                            
+                            </tr>
+                            <?php
+                                require_once 'db/dbConnection.php';
+
+                                $sql = "SELECT * FROM question WHERE student_id='" . $userid . "';";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                    while ($row = $result->fetch_assoc()) { 
+                                       echo'<tr>';
+                                            echo'<td>' . $row["question"] . '</td>';
+                                            echo'<td>' . $row["answer"] . '</td>';
+                                            
+                                    }
+                                }
+                            ?>
+                            
+                               
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

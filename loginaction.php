@@ -12,7 +12,7 @@ session_start();
 // establishing the MySQLi connection
 
 
-require_once './db/dbConnection.php';
+require_once 'db/dbConnection.php';
 
 
 // checking the user
@@ -27,9 +27,9 @@ if (isset($_POST['login'])) {
 
     $sel_admin = "select * from admin where username='$username' AND password='$password'";
 
-    $run_admin = mysqli_query($conn, $sel_user);
+    $run_admin = mysqli_query($conn, $sel_admin);
 
-    $check_admin = mysqli_num_rows($run_user);
+    $check_admin = mysqli_num_rows($run_admin);
 
     //search user
 

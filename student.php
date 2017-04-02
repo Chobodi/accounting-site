@@ -105,9 +105,6 @@ if ($result->num_rows > 0) {
                                 }
                             ?>
                             
-                                
-                                <td></td>
-                                <td></td>
                             </tr>
                         </table>
                     </div>
