@@ -67,7 +67,7 @@ require_once 'db/dbConnection.php';
       <div class="container">
           <div class="row">
           <div class="col-md-4 col-md-offset-4 text-center">
-            <h2>Sign Up</h2>
+            <h2>Add New Student</h2>
             <hr>
           </div>
         <div class="col-md-5 col-md-offset-3">
