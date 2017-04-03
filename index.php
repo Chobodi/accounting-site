@@ -23,7 +23,7 @@ require_once 'db/dbConnection.php';
     <div id="top" class="header">
       <div class="vert-text">
 	  
-        <h2><em>Accounting with Charuka</em></h2>
+        <h2><em>Accounting with Charaka</em></h2>
 		 <ul class="list-inline">
               <li><i class="fa fa-facebook fa-3x"></i></li>
               <li><i class="fa fa-twitter fa-3x"></i></li>
@@ -48,7 +48,7 @@ require_once 'db/dbConnection.php';
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-	<a href="#" class="navbar-brand">Accounting with Charuka</a>
+	<a href="#" class="navbar-brand">Accounting with Charaka</a>
   </div>
   <div class="collapse navbar-collapse" id="mobilemenu">
 
@@ -288,7 +288,7 @@ require_once 'db/dbConnection.php';
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center">
            <h2>Thank You</h2>
-           <em>Copyright &copy; Charuka 2017</em>
+           <em>Copyright &copy; Charaka 2017</em>
           </div>
         </div>
       </div>
