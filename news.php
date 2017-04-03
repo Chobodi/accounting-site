@@ -69,6 +69,7 @@ if(isset($_POST['btn-upload']))
                     <li>
                         <a href="admin.php" class="active-menu"><i class="fa fa-pagelines"></i>Question Papers</a>
                         <a href="news.php" class="active-menu"><i class="fa fa-globe"></i>News</a>
+                        <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>
                     </li>
                 </ul>
             </div>

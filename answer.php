@@ -1,5 +1,5 @@
 <?php
-require_once 'db/dbConnection.php';
+require_once './db/dbConnection.php';
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +15,6 @@ require_once 'db/dbConnection.php';
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   
    <style>
        table{
            font-family: arial,sans-serif;
@@ -50,7 +49,7 @@ require_once 'db/dbConnection.php';
                     <li>
                         <a href="admin.php" class="active-menu"><i class="fa fa-pagelines"></i>Question Papers</a>
                         <a href="news.php" class="active-menu"><i class="fa fa-globe"></i>News</a>
-                        <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>
+                        <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>  
                     </li>
                 </ul>
             </div>
@@ -59,50 +58,36 @@ require_once 'db/dbConnection.php';
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-		<div class="row">
-                    <div class="col-md-12">
+		<div class="col-md-12">
                         <h1 class="page-header">
-                            Upload Question Papers and Answers
+                            Answers for the Questions
                         </h1>
-                    </div>
                 </div> 
                 <div class="row">
-                    <div class="col-md-12">
-                        <table>
-                            <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Paper</th>
-                            </tr>
-                            <?php
-                                require_once 'db/dbConnection.php';
+                    <div class="col-md-5 col-md-offset-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                Questions 
+                            </div>
+                            <div class="panel-body">
+                                <?php
+                                        $sql = "SELECT * FROM question WHERE answer IS NULL;";
+                                        $result = $conn->query($sql);
 
-                                $sql = "SELECT * FROM papers;";
-                                $result = $conn->query($sql);
-
-                                if ($result->num_rows > 0) {
-                                // output data of each row
-                                    while ($row = $result->fetch_assoc()) { 
-                                       echo'<tr>';
-                                            echo'<td>' . $row["name"] . '</td>';
-                                            echo'<td>' . $row["description"] . '</td>';
-                                            echo'<td><a href="uploads/papers/'.$row["url"].'">Download</a></td>';
-                                    }
-                                }
-                            ?>
-                            
-                                
-                            </tr>
-                        </table>
+                                        if ($result->num_rows > 0) {
+                                            // output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                             echo '<li><a id="editItem" href="submitanswer.php?id=' . $row["question_id"] . '">' . $row["question"] . '</a></li><br>';
+                                            }
+                                        }
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <br><br><br>
-                <div>
-                    <a href="addNewPaper.php"><input type="button" class="btn btn-primary" value="Add New"></input></a>
-                </div>
             </div>
-         <!-- /. PAGE WRAPPER  -->
         </div>
+    </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->

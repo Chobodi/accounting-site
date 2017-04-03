@@ -80,21 +80,49 @@ if ($result->num_rows > 0) {
                 </div> 
                 <div class="row">
                     <div class="col-md-5 col-md-offset-3">
-                       <form action="#" class="form-horizontal" method="post">
+                       <form class="form-horizontal" >
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label" for="question">Question</label>
                                     <div class="col-sm-8">
-                                        <textarea type="text"  placeholder="Place your question here" class="form-control" name="question" id="question" rows="4"></textarea>
+                                        <textarea id="question" type="text"  placeholder="Place your question here" class="form-control" name="question" id="question" rows="4"></textarea>
                                     </div>
                             </div>
                             
-						    
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" name="question" class="btn btn-success">Submit</button>
-                            </div>
                         </fieldset>
-                        </form>  
+                       </form>
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button type="submit" name="question" class="btn btn-success" onclick="submitQuestion()">Submit</button>
+                            </div>        
+                                <script>
+                                    function submitQuestion() {
+
+
+                                        var form = document.createElement("form");
+                                        form.setAttribute("method", "post");
+                                        form.setAttribute("hidden", "true");
+                                        form.setAttribute("action", "submitquestion.php");
+
+
+
+
+                                        var cid = document.createElement("input");
+                                        cid.setAttribute("type", "hidden");
+                                        cid.setAttribute("name", "userid");
+                                        cid.setAttribute("value", <?php echo $userid ?>);
+
+
+                                        form.appendChild(cid);
+                                        
+                                        form.appendChild(document.getElementById("question"));
+                                        document.body.appendChild(form);
+                                        form.submit();
+                                    }
+
+
+                                </script>
+                            
+                         
                     </div>
                 </div>
                 <div class="row">

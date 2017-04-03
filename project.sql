@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.admin: ~1 rows (approximately)
+-- Dumping data for table accounting.admin: ~0 rows (approximately)
 DELETE FROM `admin`;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
@@ -84,8 +84,11 @@ CREATE TABLE IF NOT EXISTS `question` (
 DELETE FROM `question`;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
 INSERT INTO `question` (`question_id`, `student_id`, `question`, `answer`) VALUES
-	(1, 1, 'what are the fundamentals of accounting', ''),
-	(2, 3, 'Can I have the answers of 2017 A/l accounting paper', NULL);
+	(1, 1, 'What is the answer for the 2013 A/l accounting mcq question number 12', NULL),
+	(2, 2, 'What are the fundamentals of accounting', 'sss'),
+	(3, 3, 'Can you briefly explain about the accounting principles', 'sd'),
+	(4, 2, 'asdfg', NULL),
+	(5, 3, 'asdf', NULL);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 
 -- Dumping structure for table accounting.users
@@ -98,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `year` varchar(50) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table accounting.users: ~3 rows (approximately)
 DELETE FROM `users`;
