@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 DELETE FROM `admin`;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-	(1, 'charuka', 'admin');
+	(1, 'charaka', 'admin');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
 -- Dumping structure for table accounting.news
@@ -37,19 +37,20 @@ CREATE TABLE IF NOT EXISTS `news` (
   `url` varchar(50) NOT NULL,
   `title` varchar(50) NOT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table accounting.news: ~6 rows (approximately)
 DELETE FROM `news`;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 INSERT INTO `news` (`image_id`, `url`, `title`) VALUES
-	(1, '2-portrait1.jpg', 'News'),
-	(2, '5-nature.jpg', 'News'),
-	(3, '8-nature1.jpg', 'News'),
-	(4, '6-portrait5.jpg', 'News'),
-	(5, '8-portrait2.jpg', 'News'),
-	(6, '7-portrait3.jpg', 'News'),
-	(7, '9-portrait4.jpg', 'News');
+	(1, '5-accounting2.jpg', 'News'),
+	(2, '7-accounting3.jpg', 'News'),
+	(3, '2-accounting4.jpg', 'News'),
+	(4, '6-accounting5.jpg', 'News'),
+	(5, '7-accounting6.jpg', 'News'),
+	(6, '2-accounting7.jpg', 'News'),
+	(7, '9-accounting8.jpg', 'News'),
+	(8, '5-accounting1.jpg', 'News');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
 -- Dumping structure for table accounting.papers
@@ -80,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   CONSTRAINT `FK_question_users` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.question: ~1 rows (approximately)
+-- Dumping data for table accounting.question: ~4 rows (approximately)
 DELETE FROM `question`;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
 INSERT INTO `question` (`question_id`, `student_id`, `question`, `answer`) VALUES
@@ -101,15 +102,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `year` varchar(50) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.users: ~3 rows (approximately)
+-- Dumping data for table accounting.users: ~4 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `school`, `name`, `year`, `district`) VALUES
 	(1, 'senali', 'senali', 'Viharamaha Devi Balika Vidyalaya', 'Senali Shalika', '2016', 'Gampaha'),
 	(2, 'janani', '123', 'Visakha Vidyalaya', 'Janani Subodhika', '2016', 'Colombo'),
-	(3, 'dulsha', 'd@145', 'Sangamiththa balika Vidyalaya', 'Dulsha Premarathne', '2017', 'Galle');
+	(3, 'dulsha', 'd@145', 'Sangamiththa balika Vidyalaya', 'Dulsha Premarathne', '2017', 'Galle'),
+	(4, 'upeksha', 'u@123', 'Devi Balika Vidyalaya', 'Upeksha Silva', '2014', 'Colombo');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -1,40 +1,5 @@
 <?php
 require_once 'db/dbConnection.php';
-
-$sql = "SELECT MAX(image_id) FROM news;";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-
-        $newpostid = $row["MAX(image_id)"];
-    }
-}
-$newpostid += 1;
-
-if(isset($_POST['btn-upload']))
-{
-    $folder="uploads/";
-    $pic = rand(1,10)."-".$_FILES['pic']['name'];
-    $pic_loc = $_FILES['pic']['tmp_name'];
-     
-    if(move_uploaded_file($pic_loc,$folder.$pic))
-     {
-        $newfilename = $pic;
-        $sql = "INSERT INTO news(image_id,url,title) VALUES('" . $newpostid . "','" . $newfilename . "','News');";
-        
-        if (mysqli_query($conn, $sql)){
-            ?><script>alert('successfully uploaded');</script><?php
-        }
-        else
-        {
-            ?><script>alert('error while uploading file');</script><?php
-        }
-     }
-    
-}
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,50 +48,56 @@ if(isset($_POST['btn-upload']))
 		<div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Updates<small>Customize Gallery Items</small>
+                            Settings....<small>Make Changes</small>
                         </h1>
                     </div>
                 </div> 
                 <div class="row">
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-8 col-sm-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            News Feed 
+                            Change Username & Password 
                         </div>
                         
                         <div class="panel-footer">
                             <div class="form-group">
-                                <form action=" " method="post" enctype="multipart/form-data">
-                                    <label>Upload image</label>
-                                    <input type="file" name="pic" id="UploadFileField"/>
-                                    <button type="submit" name="btn-upload">Upload</button>
+                                <fieldset>
+                                <form action="saveSettings.php" method="post" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="username">New User Name</label>
+                                            <div class="col-sm-8">
+						<input type="text"  placeholder="User Name" class="form-control" name="username" id="username">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+					<label class="col-sm-4 control-label" for="password">Current Password</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" placeholder="Current Password" class="form-control" name="cpassword" id="cpassword">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+					<label class="col-sm-4 control-label" for="password">New Password</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" placeholder="New Password" class="form-control" name="npassword" id="npassword">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+					<label class="col-sm-4 control-label" for="email">Confirm Password</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" placeholder="ReEnter Password" class="form-control" name="cnpassword" id="cnpassword">
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-offset-4 col-sm-8">
+                                        <button type="submit" name="save changes" class="btn btn-success">Save Changes</button>
+                                    </div>
                                 </form>
+                                </fieldset>
                             </div>
                         </div>
                     </div>
                 </div>
                     
-                <div class="col-md-8 col-sm-8">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Uploaded Images 
-                        </div>
-                        <div class="panel-body">
-                            <?php
-                                $sql = "SELECT * FROM news;";
-                                $result = $conn->query($sql);
-
-                                if ($result->num_rows > 0) {
-                                            
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo '<a><img src="uploads/' . $row["url"] . '"  width="100" height="100"></a>';
-                                    }
-                                }
-                            ?>
-                                  
-                        </div>
-                    </div>
-                </div>
+                
                 </div>
             </div>
         </div>

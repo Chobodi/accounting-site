@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'db/dbConnection.php';
 ?>
 <!DOCTYPE html>
@@ -39,10 +40,7 @@ require_once 'db/dbConnection.php';
                 
                 <a class="navbar-brand" href="index.php">Admin Panel</a>
             </div>
-            <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="index.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+
         </nav>   
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -54,7 +52,8 @@ font-size: 16px;"><a href="index.php" class="btn btn-danger square-btn-adjust">L
                         <a href="admin.php" class="active-menu"><i class="fa fa-pagelines"></i>Question Papers</a>
                         <a href="news.php" class="active-menu"><i class="fa fa-globe"></i>News</a>
                         <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>
-                        <a href="addStudent.php" class="active-menu"><i class="fa fa-question"></i>Add Student</a>
+                        <a href="addNewStudent.php" class="active-menu"><i class="fa fa-sign-in"></i>Add Student</a>
+                        <a href="settings.php" class="active-menu"><i class="fa fa-circle-o"></i>Settings</a>
                     </li>
                 </ul>
             </div>

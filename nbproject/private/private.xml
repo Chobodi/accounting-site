@@ -5,10 +5,12 @@
         <group>
             <file>file:/F:/wamp/www/accounting%20site/question.php</file>
             <file>file:/F:/wamp/www/accounting%20site/admin.php</file>
-            <file>file:/F:/wamp/www/accounting%20site/student.php</file>
+            <file>file:/F:/wamp/www/accounting%20site/submitanswer.php</file>
             <file>file:/F:/wamp/www/accounting%20site/news.php</file>
+            <file>file:/F:/wamp/www/accounting%20site/saveAnswer.php</file>
+            <file>file:/F:/wamp/www/accounting%20site/submitquestion.php</file>
+            <file>file:/F:/wamp/www/accounting%20site/answer.php</file>
             <file>file:/F:/wamp/www/accounting%20site/index.php</file>
-            <file>file:/F:/wamp/www/accounting%20site/loginaction.php</file>
         </group>
     </open-files>
 </project-private>

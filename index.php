@@ -57,7 +57,6 @@ require_once 'db/dbConnection.php';
         <li><a href="#about"><i class="service-icon fa fa-info"></i>&nbsp;About</a></li>
         <li><a href="#services"><i class="service-icon fa fa-laptop"></i>&nbsp;Services</a></li>
         <li><a href="#portfolio"><i class="service-icon fa fa-camera"></i>&nbsp;News</a></li>
-        
         <li><a href="#login"><i class="service-icon fa fa-envelope"></i>&nbsp;Login</a></li>
         
     </ul>
@@ -136,7 +135,21 @@ require_once 'db/dbConnection.php';
 		
     		  <ul id="Grid" class="gcontainer">
                       <?php
-                $sql = "SELECT * FROM news WHERE image_id>5 ";
+                      $sql="SELECT MAX(image_id) FROM news";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $imageid = $row["MAX(image_id)"];
+                        }
+                    }
+                    $imageid1=$imageid;
+                    $imageid2=$imageid-1;
+                    $imageid3=$imageid-2;
+                    
+                $sql = "SELECT * FROM news WHERE image_id=$imageid1 OR image_id=$imageid2 OR image_id=$imageid3";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // output data of each row
@@ -151,7 +164,21 @@ require_once 'db/dbConnection.php';
                 }
                 ?>                      
       		  <?php
-                $sql = "SELECT * FROM news WHERE image_id<5 ";
+                  $sql="SELECT MAX(image_id) FROM news";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $imgid = $row["MAX(image_id)"];
+                        }
+                    }
+                    $imgid1=$imgid-3;
+                    $imgid2=$imageid-4;
+                    $imgid3=$imageid-5;
+                  
+                $sql = "SELECT * FROM news WHERE image_id=$imgid1 OR image_id=$imgid2 OR image_id=$imgid3 ";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // output data of each row

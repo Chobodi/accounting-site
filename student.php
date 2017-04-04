@@ -52,13 +52,9 @@ if ($result->num_rows > 0) {
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 
-                <a class="navbar-brand" href="index.php"><?php echo "$name";?></a>
-                
+                <a class="navbar-brand" href="logout.php"><?php echo "$name";?></a>
             </div>
-            <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="index.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+
         </nav>   
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
