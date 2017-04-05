@@ -56,6 +56,16 @@
 		  <!-- login form starts -->
             <form action="AddPaper.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 			<fieldset>
+                                                    <div class="form-group">
+						      <label class="col-sm-4 control-label" for="category">Paper Category</label>
+						      <div class="col-sm-8">
+                                                        <select  id="category" name="category" >
+                                                                <option value="Ordinary Level">Ordinary Level</option>
+                                                                <option value="Advanced Level">Advanced Level</option>
+                                                                <option value="AAT Accounting">AAT Accounting</option>
+                                                        </select>
+						      </div>
+						    </div>
 						    <div class="form-group">
 						      <label class="col-sm-4 control-label" for="paper name">Paper Name</label>
 						      <div class="col-sm-8">
@@ -68,10 +78,19 @@
                                                           <textarea type="text" placeholder="Place your Description" class="form-control" name="description" id="description" rows="3"></textarea>
 						      </div>
 						    </div>
+                                                    <div class="form-group">
+						      <label class="col-sm-4 control-label" for="status">Status</label>
+						      <div class="col-sm-8">
+                                                        <select  id="status" name="status" >
+                                                                <option value="All">All</option>
+                                                                <option value="Specialized">Specialized</option>
+                                                                
+                                                        </select>
+						      </div>
+						    </div>
 						    <div class="form-group">
-                                                        
-                                                            <label>Select paper</label>
-                                                            <input required="true" id="files" type="file" name="paper" accept="pdf/*" onchange="readURL(this)">
+                                                        <label>Select paper</label>
+                                                        <input required="true" id="files" type="file" name="paper" accept="pdf/*" onchange="readURL(this)">
                                                             
                                                     </div>
               

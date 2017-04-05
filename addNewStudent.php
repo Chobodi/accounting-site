@@ -73,11 +73,15 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="year">Year of A/l</label>
-                                <div class="col-sm-8">
-                                    <input type="text"  placeholder="Year of A/l" class="form-control" name="year" id="year">
-                                </div>
-                        </div>
+						      <label class="col-sm-4 control-label" for="examination">Examination Category</label>
+						      <div class="col-sm-8">
+                                                        <select  id="examination" name="examination" >
+                                                                <option value="Ordinary Level">Ordinary Level</option>
+                                                                <option value="Advanced Level">Advanced Level</option>
+                                                                <option value="AAT Accounting">AAT Accounting</option>
+                                                        </select>
+						      </div>
+						    </div>
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="username">User Name</label>
                                 <div class="col-sm-8">

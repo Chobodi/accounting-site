@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
         $userid = $row["id"];
         $name = $row["name"];
         $school= $row["school"];
-        $year = $row["year"];
+        $examination = $row["examination"];
         $district = $row["district"];
         
     }

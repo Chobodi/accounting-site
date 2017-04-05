@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
         $userid = $row["id"];
         $name = $row["name"];
         $school= $row["school"];
-        $year = $row["year"];
+        $examination = $row["examination"];
         $district = $row["district"];
         
     }
@@ -91,9 +91,9 @@ if ($result->num_rows > 0) {
                             <?php
                                 require_once 'db/dbConnection.php';
 
-                                $sql = "SELECT * FROM papers;";
+                                $sql = "SELECT * FROM papers WHERE category='" . $examination . "';";
                                 $result = $conn->query($sql);
-
+                               
                                 if ($result->num_rows > 0) {
                                 // output data of each row
                                     while ($row = $result->fetch_assoc()) { 

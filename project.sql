@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.news: ~6 rows (approximately)
+-- Dumping data for table accounting.news: ~8 rows (approximately)
 DELETE FROM `news`;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 INSERT INTO `news` (`image_id`, `url`, `title`) VALUES
@@ -59,15 +59,19 @@ CREATE TABLE IF NOT EXISTS `papers` (
   `name` varchar(50) DEFAULT NULL,
   `url` varchar(100) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`paper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.papers: ~2 rows (approximately)
+-- Dumping data for table accounting.papers: ~4 rows (approximately)
 DELETE FROM `papers`;
 /*!40000 ALTER TABLE `papers` DISABLE KEYS */;
-INSERT INTO `papers` (`paper_id`, `name`, `url`, `description`) VALUES
-	(1, '2014 A/l accounting', 'paper1.pdf', 'With Complete Answers'),
-	(2, '2013 A/l Accounting', 'paper2.pdf', 'Explore more');
+INSERT INTO `papers` (`paper_id`, `name`, `url`, `description`, `status`, `category`) VALUES
+	(1, '2014 A/l accounting', 'paper1.pdf', 'With Complete Answers', 'All', 'Advanced Level'),
+	(2, '2013 A/l Accounting', 'paper2.pdf', 'Explore more', 'All', 'Advanced Level'),
+	(3, '2011 A/l Accounting', 'paper3.pdf', 'With answers', 'Specialized', 'Advanced Level'),
+	(4, '2009 A/l accountinh', 'paper4.pdf', 'Ask questions ', 'All', 'Advanced Level');
 /*!40000 ALTER TABLE `papers` ENABLE KEYS */;
 
 -- Dumping structure for table accounting.question
@@ -85,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `question` (
 DELETE FROM `question`;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
 INSERT INTO `question` (`question_id`, `student_id`, `question`, `answer`) VALUES
-	(1, 1, 'What is the answer for the 2013 A/l accounting mcq question number 12', NULL),
+	(1, 1, 'What is the answer for the 2013 A/l accounting mcq question number 12', 'saedf'),
 	(2, 2, 'What are the fundamentals of accounting', 'sss'),
 	(3, 3, 'Can you briefly explain about the accounting principles', 'sd'),
 	(4, 2, 'asdfg', NULL),
@@ -99,19 +103,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL,
   `school` varchar(50) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `year` varchar(50) DEFAULT NULL,
+  `examination` varchar(50) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.users: ~4 rows (approximately)
+-- Dumping data for table accounting.users: ~3 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `username`, `password`, `school`, `name`, `year`, `district`) VALUES
-	(1, 'senali', 'senali', 'Viharamaha Devi Balika Vidyalaya', 'Senali Shalika', '2016', 'Gampaha'),
-	(2, 'janani', '123', 'Visakha Vidyalaya', 'Janani Subodhika', '2016', 'Colombo'),
-	(3, 'dulsha', 'd@145', 'Sangamiththa balika Vidyalaya', 'Dulsha Premarathne', '2017', 'Galle'),
-	(4, 'upeksha', 'u@123', 'Devi Balika Vidyalaya', 'Upeksha Silva', '2014', 'Colombo');
+INSERT INTO `users` (`id`, `username`, `password`, `school`, `name`, `examination`, `district`) VALUES
+	(1, 'senali', 'senali', 'Viharamaha Devi Balika Vidyalaya', 'Senali Shalika', 'Advanced Level', 'Gampaha'),
+	(2, 'janani', '123', 'Visakha Vidyalaya', 'Janani Subodhika', 'Advanced Level', 'Colombo'),
+	(3, 'dulsha', 'd@145', 'Sangamiththa balika Vidyalaya', 'Dulsha Premarathne', 'Advanced Level', 'Galle'),
+	(4, 'upeksha', 'u@123', 'Devi Balika Vidyalaya', 'Upeksha Silva', 'Advanced Level', 'Colombo');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

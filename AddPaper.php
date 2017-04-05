@@ -5,6 +5,8 @@ require_once 'db/dbConnection.php';
 
 $name = $_POST['papername'];
 $description = $_POST['description'];
+$status = $_POST['status'];
+$category = $_POST['category'];
 
 $sql = "SELECT MAX(paper_id) FROM papers;";
 
@@ -36,7 +38,7 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["paper"]["tmp_name"], $target_file)) {
         $newfilename = "paper" .$paperid . '.' . $FileType;
 
-        $sql = "INSERT INTO papers(paper_id,name,description,url) VALUES('" . $paperid . "','" . $name . "','" . $description . "', '" . $newfilename . "');";
+        $sql = "INSERT INTO papers(paper_id,name,description,url,status,category) VALUES('" . $paperid . "','" . $name . "','" . $description . "', '" . $newfilename . "', '" . $status . "', '" . $category . "');";
 
         if (mysqli_query($conn, $sql)) {
             echo '<script>

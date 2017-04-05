@@ -6,7 +6,7 @@ require_once 'db/dbConnection.php';
 $name = $_POST['name'];
 $school=$_POST['school'];
 $district = $_POST['district'];
-$year = $_POST['year'];
+$examination = $_POST['examination'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 

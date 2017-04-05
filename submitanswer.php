@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
         $questionid = $row["question_id"];
         $name = $row["name"];
         $school = $row["school"];
-        $year = $row["year"];
+        $examination = $row["examination"];
         $district = $row["district"];
         $question = $row["question"];
         
@@ -106,9 +106,9 @@ if ($result->num_rows > 0) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label" for="year">Year of A/l</label>
+                                    <label class="col-sm-4 control-label" for="examination">Examination</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="year" id="year" value="<?php echo $year ?>" disabled>
+                                        <input type="text" class="form-control" name="examination" id="examination" value="<?php echo $examination ?>" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group">
