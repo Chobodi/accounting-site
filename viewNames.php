@@ -102,9 +102,7 @@ $examination = $_POST['examination'];
                     </div>
                 </div>
                 <br><br><br>
-                <div>
-                    <a href="addNewPaper.php"><input type="button" class="btn btn-primary" value="Add New"></input></a>
-                </div>
+                
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
