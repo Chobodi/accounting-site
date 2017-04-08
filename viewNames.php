@@ -73,11 +73,13 @@ $examination = $_POST['examination'];
                 </div> 
                 <div class="row">
                     <div class="col-md-12">
+                      
                         <table>
                             <tr>
                             <th>Name</th>
                             <th>School</th>
                             <th>District</th>
+                            <th>Remove Student</th>
                             </tr>
                             <?php
                                 require_once 'db/dbConnection.php';
@@ -89,9 +91,11 @@ $examination = $_POST['examination'];
                                 // output data of each row
                                     while ($row = $result->fetch_assoc()) { 
                                        echo'<tr>';
+                                            $id = $row["id"];
                                             echo'<td>' . $row["name"] . '</td>';
                                             echo'<td>' . $row["school"] . '</td>';
                                             echo'<td>' . $row["district"] . '</td>';
+                                            echo'<td><a href="removeStudent.php?id=' . $id . '"><input type="button" class="btn btn-primary" value="Remove"></input></a></td>';
                                     }
                                 }
                             ?>

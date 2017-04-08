@@ -36,6 +36,7 @@
                         <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>  
                         <a href="addNewStudent.php" class="active-menu"><i class="fa fa-sign-in"></i>Add Student</a>
                         <a href="settings.php" class="active-menu"><i class="fa fa-circle-o"></i>Settings</a>
+                        <a href="viewStudents.php" class="active-menu"><i class="fa fa-circle-o"></i>View Students</a>
                     </li>
                 </ul>
             </div>
