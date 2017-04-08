@@ -1,6 +1,3 @@
-<?php
-require_once './db/dbConnection.php';
-?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,21 +12,6 @@ require_once './db/dbConnection.php';
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <style>
-       table{
-           font-family: arial,sans-serif;
-           border-collapse: collapse;
-           width: 100%;
-       }
-       td,th{
-           border: 1px solid #dddddd;
-           text-align: left;
-           padding: 8px;
-       }
-       tr:nth-child(even){
-           background-color: #dddddd;
-       }
-   </style>
 </head>
 <body>
     <div id="wrapper">
@@ -61,36 +43,43 @@ require_once './db/dbConnection.php';
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-		<div class="col-md-12">
+		<div class="row">
+                    <div class="col-md-12">
                         <h1 class="page-header">
-                            Answers for the Questions
+                            Select Category
                         </h1>
+                    </div>
                 </div> 
                 <div class="row">
                     <div class="col-md-5 col-md-offset-3">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Questions 
-                            </div>
-                            <div class="panel-body">
-                                <?php
-                                        $sql = "SELECT * FROM question WHERE answer IS NULL;";
-                                        $result = $conn->query($sql);
-
-                                        if ($result->num_rows > 0) {
-                                            // output data of each row
-                                            while ($row = $result->fetch_assoc()) {
-                                             echo '<li><a id="editItem" href="submitanswer.php?id=' . $row["question_id"] . '">' . $row["question"] . '</a></li><br>';
-                                            }
-                                        }
-                                ?>
-                            </div>
+		  <!-- login form starts -->
+                    <form action="viewNames.php" class="form-horizontal" method="post">
+                        <fieldset>
+                        
+                        
+                        
+                        <div class="form-group">
+						      <label class="col-sm-4 control-label" for="examination">Examination Category</label>
+						      <div class="col-sm-8">
+                                                        <select  id="examination" name="examination" >
+                                                                <option value="Ordinary Level">Ordinary Level</option>
+                                                                <option value="Advanced Level">Advanced Level</option>
+                                                                <option value="AAT Accounting">AAT Accounting</option>
+                                                        </select>
+						      </div>
+						    </div>
+                        
+                          
+						    
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" name="signup" class="btn btn-success">Get Student List</button>
                         </div>
-                    </div>
+                    </fieldset>
+                </form> 
                 </div>
             </div>
+            </div>
         </div>
-    </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
