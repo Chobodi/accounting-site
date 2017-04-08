@@ -16,7 +16,25 @@ require_once 'db/dbConnection.php';
     <link href="css/slidefolio.css" rel="stylesheet">
 	<!-- Font Awesome -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 8px;
     
+}
+p.round{
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+</style>
   </head>
   <body>
     <!-- Header Area -->
@@ -57,6 +75,8 @@ require_once 'db/dbConnection.php';
         <li><a href="#about"><i class="service-icon fa fa-info"></i>&nbsp;About</a></li>
         <li><a href="#services"><i class="service-icon fa fa-laptop"></i>&nbsp;Services</a></li>
         <li><a href="#portfolio"><i class="service-icon fa fa-camera"></i>&nbsp;News</a></li>
+        <li><a href="#pastpapers"><i class="service-icon fa fa-book"></i>&nbsp;Past Papers</a></li>
+        <li><a href="#forum"><i class="service-icon fa fa-question-circle"></i>&nbsp;Forum</a></li>
         <li><a href="#login"><i class="service-icon fa fa-envelope"></i>&nbsp;Login</a></li>
         
     </ul>
@@ -201,9 +221,205 @@ require_once 'db/dbConnection.php';
 		</div>
       </div>
     <!-- /Portfolio -->
+    <!-- Pastpapers -->
+    <div id="pastpapers" class="pastpapers">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h2>Past papers</h2>
+            <hr>
+          </div>
+        </div>
+          <div class="row">
+              <div class="col-sm-10">
+                        <table>
+                            <tr>
+                            <th><i>Title</i></th>
+                            <th><i>Description</i></th>
+                            <th><i>Category</i></th>
+                            <th><i>Paper</i></th>
+                            </tr>
+                            <?php
+                                require_once 'db/dbConnection.php';
+
+                                $sql = "SELECT * FROM papers WHERE status='All';";
+                                $result = $conn->query($sql);
+                               
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                    while ($row = $result->fetch_assoc()) { 
+                                       echo'<tr>';
+                                            echo'<td>' . $row["name"] . '</td>';
+                                            echo'<td>' . $row["description"] . '</td>';
+                                            echo'<td>' . $row["category"] . '</td>';
+                                            echo'<td><a href="uploads/papers/'.$row["url"].'">Download</a></td>';
+                                    }
+                                }
+                            ?>
+                            
+                            </tr>
+                        </table>
+                    </div>
+          </div>
+      </div>
+    </div>
+    <!-- /Pastpapers -->
+    
+    <!-- Forum -->
+    <div id="forum" class="forum">
+    <div class="container">
+        
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>Forum</h2>
+            <p class="lead"></p>
+          </div>
+        </div>
+        <div class="row">
+                    <div class="col-md-8 col-md-offset-4">
+		  <!-- login form starts -->
+                  <form action="addForum.php" class="form-horizontal" method="post">
+                        <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="name">Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text"  placeholder="Enter name" class="form-control" name="name" id="name">
+                                </div>
+                        </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="question">Question</label>
+                                <div class="col-sm-8">
+                                    <textArea type="text" class="form-control" name="question" id="question" rows="3" ></textarea>
+                                </div>
+                            </div> 
+                            <div class="col-sm-offset-10 col-sm-4">
+                            <button type="submit" name="signup" class="btn btn-success">Submit Question</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    </div>
+        </div>
+        <br><br> 
+        <div class="row">
+            
+                <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid1=$forumid;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid1;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-4 col-sm-4">';
+                        echo'<div class="panel panel-danger">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+              
+            
+                <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid2=$forumid-1;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid2;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-4 col-sm-4">';
+                        echo'<div class="panel panel-primary">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+          
+            <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid3=$forumid-2;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid3;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-4 col-sm-4">';
+                        echo'<div class="panel panel-info">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+        </div>
+    </div>
+    </div>
+    <!-- /Forum -->
     
     <!-- Login -->
-    <div id="login">
+    <div id="login" class="login">
       <div class="container">
         <div class="row">
 		<div class="col-md-4 col-md-offset-4 text-center">

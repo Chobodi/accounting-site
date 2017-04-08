@@ -31,6 +31,27 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 	(1, 'charaka', 'admin');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
+-- Dumping structure for table accounting.forum
+CREATE TABLE IF NOT EXISTS `forum` (
+  `forum_id` int(11) NOT NULL,
+  `student_name` varchar(100) NOT NULL,
+  `question` varchar(300) NOT NULL,
+  `answer1` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`forum_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table accounting.forum: ~6 rows (approximately)
+DELETE FROM `forum`;
+/*!40000 ALTER TABLE `forum` DISABLE KEYS */;
+INSERT INTO `forum` (`forum_id`, `student_name`, `question`, `answer1`) VALUES
+	(1, 'saman', 'What are the fundamentals of accounting?', 'wretr'),
+	(2, 'kamal', 'What is accounting', 'fwetdfwyegd'),
+	(3, 'Amal', 'asf', 'kjhdkjw'),
+	(4, 'Madhava', 'What accounting principles?', 'jfbkj'),
+	(5, 'Janani', 'agsdfya?', NULL),
+	(6, 'Senali', 'sgfishfo?', NULL);
+/*!40000 ALTER TABLE `forum` ENABLE KEYS */;
+
 -- Dumping structure for table accounting.news
 CREATE TABLE IF NOT EXISTS `news` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -64,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `papers` (
   PRIMARY KEY (`paper_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.papers: ~4 rows (approximately)
+-- Dumping data for table accounting.papers: ~3 rows (approximately)
 DELETE FROM `papers`;
 /*!40000 ALTER TABLE `papers` DISABLE KEYS */;
 INSERT INTO `papers` (`paper_id`, `name`, `url`, `description`, `status`, `category`) VALUES
@@ -93,7 +114,8 @@ INSERT INTO `question` (`question_id`, `student_id`, `question`, `answer`) VALUE
 	(2, 2, 'What are the fundamentals of accounting', 'sss'),
 	(3, 3, 'Can you briefly explain about the accounting principles', 'sd'),
 	(4, 2, 'asdfg', NULL),
-	(5, 3, 'asdf', NULL);
+	(5, 3, 'asdf', NULL),
+	(6, 1, 'edwfre', NULL);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 
 -- Dumping structure for table accounting.users
