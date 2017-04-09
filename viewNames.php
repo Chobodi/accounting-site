@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once 'db/dbConnection.php';
+$examination = $_POST['examination'];
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,6 +17,22 @@ require_once 'db/dbConnection.php';
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
+   <style>
+       table{
+           font-family: arial,sans-serif;
+           border-collapse: collapse;
+           width: 100%;
+       }
+       td,th{
+           border: 1px solid #dddddd;
+           text-align: left;
+           padding: 8px;
+       }
+       tr:nth-child(even){
+           background-color: #dddddd;
+       }
+   </style>
 </head>
 <body>
     <div id="wrapper">
@@ -50,58 +68,48 @@ require_once 'db/dbConnection.php';
 		<div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Settings....<small>Make Changes</small>
+                            Student List
                         </h1>
                     </div>
                 </div> 
                 <div class="row">
-                <div class="col-md-8 col-sm-8">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Change Username & Password 
-                        </div>
-                        
-                        <div class="panel-footer">
-                            <div class="form-group">
-                                <fieldset>
-                                <form action="saveSettings.php" method="post" class="form-horizontal">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label" for="username">New User Name</label>
-                                            <div class="col-sm-8">
-						<input type="text"  placeholder="User Name" class="form-control" name="username" id="username">
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-					<label class="col-sm-4 control-label" for="password">Current Password</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" placeholder="Current Password" class="form-control" name="cpassword" id="cpassword">
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-					<label class="col-sm-4 control-label" for="password">New Password</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" placeholder="New Password" class="form-control" name="npassword" id="npassword">
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-					<label class="col-sm-4 control-label" for="email">Confirm Password</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" placeholder="ReEnter Password" class="form-control" name="cnpassword" id="cnpassword">
-                                            </div>
-                                    </div>
-                                    <div class="col-sm-offset-4 col-sm-8">
-                                        <button type="submit" name="save changes" class="btn btn-success">Save Changes</button>
-                                    </div>
-                                </form>
-                                </fieldset>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                      
+                        <table>
+                            <tr>
+                            <th>Name</th>
+                            <th>School</th>
+                            <th>District</th>
+                            <th>Remove Student</th>
+                            </tr>
+                            <?php
+                                require_once 'db/dbConnection.php';
+
+                                $sql = "SELECT * FROM users where examination='" . $examination . "';";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                    while ($row = $result->fetch_assoc()) { 
+                                       echo'<tr>';
+                                            $id = $row["id"];
+                                            echo'<td>' . $row["name"] . '</td>';
+                                            echo'<td>' . $row["school"] . '</td>';
+                                            echo'<td>' . $row["district"] . '</td>';
+                                            echo'<td><a href="removeStudent.php?id=' . $id . '"><input type="button" class="btn btn-primary" value="Remove"></input></a></td>';
+                                    }
+                                }
+                            ?>
+                            
+                                
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                    
+                <br><br><br>
                 
-                </div>
             </div>
+         <!-- /. PAGE WRAPPER  -->
         </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->

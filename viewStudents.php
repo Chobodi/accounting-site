@@ -47,33 +47,18 @@
 		<div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Add New Student
+                            Select Category
                         </h1>
                     </div>
                 </div> 
                 <div class="row">
                     <div class="col-md-5 col-md-offset-3">
 		  <!-- login form starts -->
-                    <form action="signup.php" class="form-horizontal" method="post">
+                    <form action="viewNames.php" class="form-horizontal" method="post">
                         <fieldset>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="name">Name</label>
-                                <div class="col-sm-8">
-                                    <input type="text"  placeholder="Enter name" class="form-control" name="name" id="name">
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="school">School</label>
-                                <div class="col-sm-8">
-                                    <input type="text"  placeholder="School" class="form-control" name="school" id="school">
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="district">District</label>
-                                <div class="col-sm-8">
-                                    <input type="text"  placeholder="Your District" class="form-control" name="district" id="district">
-                                </div>
-                        </div>
+                        
+                        
+                        
                         <div class="form-group">
 						      <label class="col-sm-4 control-label" for="examination">Examination Category</label>
 						      <div class="col-sm-8">
@@ -84,28 +69,11 @@
                                                         </select>
 						      </div>
 						    </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="username">User Name</label>
-                                <div class="col-sm-8">
-                                    <input type="text"  placeholder="Enter User Name" class="form-control" name="username" id="username">
-                                </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="password">Password</label>
-                                <div class="col-sm-8">
-                                    <input type="password" placeholder="Password" class="form-control" name="password" id="password">
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="password">Confirm Password</label>
-                                <div class="col-sm-8">
-                                    <input type="password" placeholder="Confirm Password" class="form-control" name="cpassword" id="cpassword">
-                                </div>
-                        </div>    
+                        
+                          
 						    
                         <div class="col-sm-offset-4 col-sm-8">
-                            <button type="submit" name="signup" class="btn btn-success">Save</button>
+                            <button type="submit" name="signup" class="btn btn-success">Get Student List</button>
                         </div>
                     </fieldset>
                 </form> 

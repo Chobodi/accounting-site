@@ -37,6 +37,7 @@ require_once './db/dbConnection.php';
             <div class="navbar-header">
                 
                 <a class="navbar-brand" href="index.php">Admin Panel</a>
+                <div style="color: white; padding: 15px 50px 15px 950px; float: right; font-size: 16px;">  <a href="logout.php"><input type="button" class="btn btn-primary" value="Logout"></input></a> </div>
             </div>
 
         </nav>   
@@ -52,6 +53,7 @@ require_once './db/dbConnection.php';
                         <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>
                         <a href="addNewStudent.php" class="active-menu"><i class="fa fa-sign-in"></i>Add Student</a>
                         <a href="settings.php" class="active-menu"><i class="fa fa-circle-o"></i>Settings</a>
+                        <a href="viewStudents.php" class="active-menu"><i class="fa fa-circle-o"></i>View Students</a>
                     </li>
                 </ul>
             </div>
