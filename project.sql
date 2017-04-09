@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `forum` (
   PRIMARY KEY (`forum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table accounting.forum: ~6 rows (approximately)
+-- Dumping data for table accounting.forum: ~5 rows (approximately)
 DELETE FROM `forum`;
 /*!40000 ALTER TABLE `forum` DISABLE KEYS */;
 INSERT INTO `forum` (`forum_id`, `student_name`, `question`, `answer1`) VALUES
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `examination` varchar(50) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table accounting.users: ~3 rows (approximately)
 DELETE FROM `users`;
@@ -137,7 +137,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `school`, `name`, `examinatio
 	(1, 'senali', 'senali', 'Viharamaha Devi Balika Vidyalaya', 'Senali Shalika', 'Advanced Level', 'Gampaha'),
 	(2, 'janani', '123', 'Visakha Vidyalaya', 'Janani Subodhika', 'Advanced Level', 'Colombo'),
 	(3, 'dulsha', 'd@145', 'Sangamiththa balika Vidyalaya', 'Dulsha Premarathne', 'Advanced Level', 'Galle'),
-	(4, 'upeksha', 'u@123', 'Devi Balika Vidyalaya', 'Upeksha Silva', 'Advanced Level', 'Colombo');
+	(4, 'upeksha', 'u@123', 'Devi Balika Vidyalaya', 'Upeksha Silva', 'Advanced Level', 'Colombo'),
+	(5, 'indrani', '123', 'Hanwella Central College', 'Indrani', 'Ordinary Level', 'Colombo');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
