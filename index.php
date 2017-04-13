@@ -322,7 +322,7 @@ p.round{
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
-                        echo'<div class="col-md-4 col-sm-4">';
+                        echo'<div class="col-md-6 col-sm-6">';
                         echo'<div class="panel panel-danger">';
                         echo'<div class="panel-heading">';
                         echo $row["student_name"];
@@ -338,9 +338,7 @@ p.round{
                     }
                 }
                 ?>
-              
-            
-                <?php
+            <?php
                 $sql="SELECT MAX(forum_id) FROM forum";
                       $result = $conn->query($sql);
 
@@ -360,8 +358,8 @@ p.round{
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
-                        echo'<div class="col-md-4 col-sm-4">';
-                        echo'<div class="panel panel-primary">';
+                        echo'<div class="col-md-6 col-sm-6">';
+                        echo'<div class="panel panel-info">';
                         echo'<div class="panel-heading">';
                         echo $row["student_name"];
                         echo'</div>';
@@ -376,8 +374,9 @@ p.round{
                     }
                 }
                 ?>
-          
-            <?php
+        </div>      
+        <div class="row">
+                <?php
                 $sql="SELECT MAX(forum_id) FROM forum";
                       $result = $conn->query($sql);
 
@@ -397,8 +396,118 @@ p.round{
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
-                        echo'<div class="col-md-4 col-sm-4">';
+                        echo'<div class="col-md-6 col-sm-6">';
+                        echo'<div class="panel panel-primary">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+            <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid4=$forumid-3;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid4;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-6 col-sm-6">';
+                        echo'<div class="panel panel-warning">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+        </div>  
+        <div class="row">
+            <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid5=$forumid-4;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid5;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-6 col-sm-6">';
                         echo'<div class="panel panel-info">';
+                        echo'<div class="panel-heading">';
+                        echo $row["student_name"];
+                        echo'</div>';
+                        echo'<div class="panel-body">';
+                        echo $row["question"] ;
+                        echo'</div>';
+                        echo'<div class="panel-footer">';
+                        echo $row["answer1"] ;
+                        echo'</div>';
+                        echo'</div>';
+                        echo'</div>';
+                    }
+                }
+                ?>
+            <?php
+                $sql="SELECT MAX(forum_id) FROM forum";
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+    
+                        while ($row = $result->fetch_assoc()) {
+
+                            $forumid = $row["MAX(forum_id)"];
+                        }
+                    }
+                    $forumid6=$forumid-5;
+                    
+                    
+                    $sql = "SELECT * FROM forum WHERE forum_id=$forumid6;";
+              $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo'<div class="col-md-6 col-sm-6">';
+                        echo'<div class="panel panel-danger">';
                         echo'<div class="panel-heading">';
                         echo $row["student_name"];
                         echo'</div>';

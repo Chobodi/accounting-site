@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'db/dbConnection.php';
 ?>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ require_once 'db/dbConnection.php';
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 
-                <a class="navbar-brand" href="index.php">Admin Panel</a>
+                <a class="navbar-brand" href="#">Admin Panel</a>
                 <div style="color: white; padding: 15px 50px 15px 950px; float: right; font-size: 16px;">  <a href="logout.php"><input type="button" class="btn btn-primary" value="Logout"></input></a> </div>
             </div>
 
@@ -37,8 +38,9 @@ require_once 'db/dbConnection.php';
                         <a href="news.php" class="active-menu"><i class="fa fa-globe"></i>News</a>
                         <a href="answer.php" class="active-menu"><i class="fa fa-question"></i>Provide Answers</a>
                         <a href="addNewStudent.php" class="active-menu"><i class="fa fa-sign-in"></i>Add Student</a>
+                        <a href="viewStudents.php" class="active-menu"><i class="fa fa-list"></i>View Students</a>
+                        <a href="forumAnswer.php" class="active-menu"><i class="fa fa-question-circle"></i>Forum Questions</a>
                         <a href="settings.php" class="active-menu"><i class="fa fa-circle-o"></i>Settings</a>
-                        <a href="viewStudents.php" class="active-menu"><i class="fa fa-circle-o"></i>View Students</a>
                     </li>
                 </ul>
             </div>
@@ -114,6 +116,6 @@ require_once 'db/dbConnection.php';
       <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     
-  
+<?php mysqli_close($conn);?>   
 </body>
 </html>

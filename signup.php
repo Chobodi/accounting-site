@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
 // Output "no suggestion" if no hint was found or output correct values 
 $userid += 1;
 
-$sql = "INSERT INTO users(id,name,district,school,year,username,password) VALUES('" . $userid . "','" . $name . "','" . $district . "', '" . $school . "', '" . $year . "', '" . $username . "', '" . $password . "');";
+$sql = "INSERT INTO users(id,name,district,school,examination,username,password) VALUES('" . $userid . "','" . $name . "','" . $district . "', '" . $school . "', '" . $examination . "', '" . $username . "', '" . $password . "');";
 
 if (mysqli_query($conn, $sql)) {
     echo '<script>

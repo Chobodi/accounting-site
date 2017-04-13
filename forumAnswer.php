@@ -1,41 +1,6 @@
 <?php
 session_start();
-require_once 'db/dbConnection.php';
-
-$sql = "SELECT MAX(image_id) FROM news;";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-
-        $newpostid = $row["MAX(image_id)"];
-    }
-}
-$newpostid += 1;
-
-if(isset($_POST['btn-upload']))
-{
-    $folder="uploads/";
-    $pic = rand(1,10)."-".$_FILES['pic']['name'];
-    $pic_loc = $_FILES['pic']['tmp_name'];
-     
-    if(move_uploaded_file($pic_loc,$folder.$pic))
-     {
-        $newfilename = $pic;
-        $sql = "INSERT INTO news(image_id,url,title) VALUES('" . $newpostid . "','" . $newfilename . "','News');";
-        
-        if (mysqli_query($conn, $sql)){
-            ?><script>alert('successfully uploaded');</script><?php
-        }
-        else
-        {
-            ?><script>alert('error while uploading file');</script><?php
-        }
-     }
-    
-}
-
+require_once './db/dbConnection.php';
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,6 +16,21 @@ if(isset($_POST['btn-upload']))
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <style>
+       table{
+           font-family: arial,sans-serif;
+           border-collapse: collapse;
+           width: 100%;
+       }
+       td,th{
+           border: 1px solid #dddddd;
+           text-align: left;
+           padding: 8px;
+       }
+       tr:nth-child(even){
+           background-color: #dddddd;
+       }
+   </style>
 </head>
 <body>
     <div id="wrapper">
@@ -84,56 +64,36 @@ if(isset($_POST['btn-upload']))
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-		<div class="row">
-                    <div class="col-md-12">
+		<div class="col-md-12">
                         <h1 class="page-header">
-                            Updates<small>Customize Gallery Items</small>
+                            Answers for the Questions
                         </h1>
-                    </div>
                 </div> 
                 <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            News Feed 
-                        </div>
-                        
-                        <div class="panel-footer">
-                            <div class="form-group">
-                                <form action=" " method="post" enctype="multipart/form-data">
-                                    <label>Upload image</label>
-                                    <input type="file" name="pic" id="UploadFileField"/>
-                                    <button type="submit" name="btn-upload">Upload</button>
-                                </form>
+                    <div class="col-md-5 col-md-offset-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                Questions 
+                            </div>
+                            <div class="panel-body">
+                                <?php
+                                        $sql = "SELECT * FROM forum WHERE answer1 IS NULL;";
+                                        $result = $conn->query($sql);
+
+                                        if ($result->num_rows > 0) {
+                                            // output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                             echo '<li><a id="editItem" href="submitForumAnswer.php?id=' . $row["forum_id"] . '">' . $row["question"] . '</a></li><br>';
+                                            }
+                                        }
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
-                    
-                <div class="col-md-8 col-sm-8">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Uploaded Images 
-                        </div>
-                        <div class="panel-body">
-                            <?php
-                                $sql = "SELECT * FROM news;";
-                                $result = $conn->query($sql);
-
-                                if ($result->num_rows > 0) {
-                                            
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo '<a><img src="uploads/' . $row["url"] . '"  width="100" height="100"></a>';
-                                    }
-                                }
-                            ?>
-                                  
-                        </div>
-                    </div>
-                </div>
-                </div>
             </div>
         </div>
+    </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -145,6 +105,6 @@ if(isset($_POST['btn-upload']))
       <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     
-<?php mysqli_close($conn);?>  
+<?php mysqli_close($conn);?> 
 </body>
 </html>
