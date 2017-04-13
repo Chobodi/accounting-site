@@ -1,8 +1,8 @@
 <?php 
-	$servername="charaka.database.windows.net";
-	$username = "charka";
-	$password ="charaka@123";
-	$dbname = "charakaDB";
+	$servername="sql12.freesqldatabase.com";
+	$username = " sql12168947";
+	$password =" XlyjDEgPN6";
+	$dbname = "sql12168947";
 
  ?>
  
