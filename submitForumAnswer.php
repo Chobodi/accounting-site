@@ -3,17 +3,14 @@
 require_once 'db/dbConnection.php';
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM question INNER JOIN users ON question.student_id=users.id WHERE question_id=" . $id . ";";
+$sql = "SELECT * FROM forum WHERE forum_id=" . $id . ";";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        $questionid = $row["question_id"];
-        $name = $row["name"];
-        $school = $row["school"];
-        $examination = $row["examination"];
-        $district = $row["district"];
+        $forumid = $row["forum_id"];
+        $name = $row["student_name"];
         $question = $row["question"];
         
     }
@@ -83,7 +80,7 @@ if ($result->num_rows > 0) {
             <div id="page-inner">
 		<div class="col-md-12">
                         <h1 class="page-header">
-                            Answers for the Questions
+                            Forum Questions
                         </h1>
                 </div> 
                 <div class="row">
@@ -96,24 +93,7 @@ if ($result->num_rows > 0) {
                                         <input type="text" class="form-control" name="studentname" id="studentname" value="<?php echo $name ?>" disabled>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label" for="school">School</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="school" id="school"  value="<?php echo $school ?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label" for="district">District</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="district" id="district" value="<?php echo $district ?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label" for="examination">Examination</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="examination" id="examination" value="<?php echo $examination ?>" disabled>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label" for="question">Question</label>
                                     <div class="col-sm-8">
@@ -130,24 +110,24 @@ if ($result->num_rows > 0) {
                             </fieldset>
                         </form> 
                         <div class="col-sm-offset-4 col-sm-8">
-                            <button type="submit" name="signup" class="btn btn-success"onclick="submitAnswer()">Save</button>
+                            <button type="submit" name="signup" class="btn btn-success"onclick="submitForumAnswer()">Save</button>
                         </div>
                         <script>
-                                    function submitAnswer() {
+                                    function submitForumAnswer() {
 
 
                                         var form = document.createElement("form");
                                         form.setAttribute("method", "post");
                                         form.setAttribute("hidden", "true");
-                                        form.setAttribute("action", "saveAnswer.php");
+                                        form.setAttribute("action", "saveForum.php");
 
 
 
 
                                         var cid = document.createElement("input");
                                         cid.setAttribute("type", "hidden");
-                                        cid.setAttribute("name", "questionid");
-                                        cid.setAttribute("value", <?php echo $questionid ?>);
+                                        cid.setAttribute("name", "forumid");
+                                        cid.setAttribute("value", <?php echo $forumid ?>);
 
 
                                         form.appendChild(cid);

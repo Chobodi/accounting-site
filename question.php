@@ -174,6 +174,6 @@ if ($result->num_rows > 0) {
       <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     
-  
+<?php mysqli_close($conn);?>   
 </body>
 </html>
