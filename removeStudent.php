@@ -13,7 +13,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo '<script>
         
-					alert("Sign Up failed");
+					
 					window.location = "index.php#login";
 				</script>';
     
