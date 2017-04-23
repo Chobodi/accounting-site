@@ -1,9 +1,9 @@
 <?php 
-	$servername="sql12.freesqldatabase.com";
-	$username = "sql12168947";
-	$password ="XlyjDEgPN6";
-	$dbname = "sql12168947";
-	$port = 3306;  
+	$servername="localhost";
+	$username = "id1448892_charaka";
+	$password ="charaka@123";
+	$dbname = "id1448892_charakadb";
+	
  ?>
  
  
